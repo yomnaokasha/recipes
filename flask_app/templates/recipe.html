@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome {{logged_user.first_name}}</h1>
+    <p>{{recipes.name}}</p>
+    <p>Description:{{recipes.description}}</p>
+    <p>under 30 minutes:{{recipes.minutes}}</p>
+    <p>Instructions:{{recipes.instructions}}</p>
+    <p>Date Made:{{recipes.date_made}}</p>
+    <a href='/dashboard'>dashboard</a>
+    <form class="form" action="/logout" method="post">
+        <button type="submit">logout</button>
+
+  </body>
+</html>

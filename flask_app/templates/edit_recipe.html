@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Recipe</title>
+  </head>
+  <body></body>
+</html>
+
+<a href=" /dashboard">Dashboard</a>
+<form class="form" action="/logout" method="post">
+  <button type="submit">Logout</button>
+</form>
+<h1 class="head">Edit Receipe</h1>
+<form class="form" action="/recipes/update" method="post">
+  <input type="hidden" name="id" value="{{recipe.id}}" />
+  <div class="body">
+    <label class="input" for="name">Name</label>
+    <input type="text" name="name" value="{{recipe.name}}" />
+  </div>
+  <div class="body">
+    <label class="input" for="description">Description</label>
+    <input type="text" name="description" value="{{recipe.description}}" />
+  </div>
+  <div class="body">
+    <label class="input" for="instructions">Instructions</label>
+    <input type="text" name="instructions" value="{{recipe.instructions}}" />
+  </div>
+  <div class="body">
+    <label class="input" for="date_made">Date Made</label>
+    <input
+      type="date"
+      name="date_made"
+      min="1900-01-01"
+      max="2021-01-01"
+      value="{{recipe.date_made}}"
+    />
+  </div>
+  <div class="form-check">
+    <label class="input" for="instructions">Under 30 Minutes</label>
+    <input class="form-check-input" type="radio" value="yes" name="minutes"
+    id="flexRadioDefault1" {% if recipe.minutes == "yes" %} checked {% endif %}
+    />
+    <label class="form-check-label" for="flexRadioDefault1"> Yes </label>
+    <input class="form-check-input" type="radio" value="no" name="minutes"
+    id="flexRadioDefault2" {% if recipe.minutes == "no" %} checked {% endif %}
+    />
+    <label class="form-check-label" for="flexRadioDefault2"> No </label>
+  </div>
+
+  <div>
+    <input type="submit" value="Update" />
+  </div>
+</form>

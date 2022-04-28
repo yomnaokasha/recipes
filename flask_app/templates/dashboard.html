@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dashboard</title>
+  </head>
+  <body>
+    <h1>Welcome {{logged_user.first_name}}</h1>
+    <p>there are a recepies</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>Under 30 minutes</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for recipe in recipes %}
+        <tr>
+          <td>{{recipe.name}}</td>
+          <td>{{recipe.minutes}}</td>
+          <td>
+            <a href="/recipes/{{recipe.id}}">view instructions</a>
+            <a href="/recipes/{{recipe.id}}/edit">Edit</a>
+            <a href="/recipes/{{recipe.id}}/destroy">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/recipes/new">create</a>|
+    <form class="form" action="/logout" method="post">
+      <button type="submit">logout</button>
+    </form>
+  </body>
+</html>

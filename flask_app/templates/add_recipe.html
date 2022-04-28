@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add recipe</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <p>{{message}}</p>
+    {% endfor %} {% endif %} {% endwith %}
+    <h1>add new recipe</h1>
+    <form class="form" action="/recipes/create" method="post">
+      <div class="body">
+        <label class="input" for="name">Name</label>
+        <input type="text" name="name" />
+      </div>
+      <div class="body">
+        <label class="input" for="description">Description</label>
+        <input type="text" name="description" />
+      </div>
+      <div class="body">
+        <label class="input" for="instructions">Instructions</label>
+        <input type="text" name="instructions" />
+      </div>
+      <div class="form-check">
+        <label class="input" for="instructions">Under 30 Minutes</label>
+        <input
+          class="form-check-input"
+          type="radio"
+          value="yes"
+          name="minutes"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1"> Yes </label>
+        <input
+          class="form-check-input"
+          type="radio"
+          name="minutes"
+          value="no"
+          id="flexRadioDefault2"
+          checked
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> No </label>
+      </div>
+      <label
+        >Date Made on:
+        <input type="date" name="date_made" min="1900-01-01" max="2021-01-01" />
+      </label>
+      <div>
+        <form class="form" action="/dashboard" method="post">
+          <button type="submit">create</button>
+        </form>
+      </div>
+    </form>
+    <a href="/dashboard">dashboard</a>
+    <form class="form" action="/logout" method="post">
+      <button type="submit">logout</button>
+    </form>
+  </body>
+</html>
